@@ -13,8 +13,7 @@ class BaseController {
     this.server = app;
     this.actions.forEach((act) => {
       let method = act["spec"]["method"];
-      logger.info(`Setting up auto-doc for (${method} ) -
-${act["spec"]["nickname"]}`);
+      logger.info(`Setting up auto-doc for (${method} ) - ${act["spec"]["nickname"]}`);
       sw["add" + method](act);
       app[method.toLowerCase()](act["spec"]["path"], act["action"]);
     });
